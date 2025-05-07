@@ -1,4 +1,4 @@
-# Forest Fire Detection (Week 1)
+# Forest Fire Detection (Week 1 & 2)
 
 ## Overview
 
