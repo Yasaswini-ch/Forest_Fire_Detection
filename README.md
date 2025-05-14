@@ -1,6 +1,6 @@
 # Forest Fire Detection Using CNN(Week-1,2,3)
 
-# Forest Fire Detection (Week 1 & 2)
+## Forest Fire Detection (Week 1 & 2)
 
 ## Overview
 
