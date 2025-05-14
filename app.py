@@ -19,7 +19,6 @@ This Streamlit app uses a Convolutional Neural Network (CNN) to detect whether a
 st.markdown("---")
 st.subheader("Upload an Image")
 
-
 # Load the trained model
 @st.cache_resource
 def load_my_model():
@@ -40,71 +39,35 @@ uploaded_file = st.file_uploader("Upload an image of a forest scene", type=["jpg
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_container_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)  # ✅ Updated here
     
     # --- Preprocess image (Keep this consistent with your training) ---
     img_resized = image.resize((TRAINING_IMG_WIDTH, TRAINING_IMG_HEIGHT))
     img_array_pil = np.array(img_resized)
-    img_normalized = img_array_pil / 255.0 # Assuming simple /255.0 normalization
+    img_normalized = img_array_pil / 255.0  # Assuming simple /255.0 normalization
     img_batch = np.expand_dims(img_normalized, axis=0)
 
     # --- Predict ---
     with st.spinner("Classifying..."):
         raw_prediction = model.predict(img_batch)
-    
+
     predicted_value = raw_prediction[0][0]
-    #st.write(f"DEBUG: Raw scalar prediction from model: {predicted_value:.4f}") # DEBUG LINE
 
     # --- Interpret Prediction ---
-    # CHOOSE *ONE* OF THE FOLLOWING INTERPRETATION BLOCKS TO TEST AT A TIME.
-    # COMMENT OUT THE OTHER ONE.
+    final_result_text = ""
+    final_verdict_style = st.error
 
-    # ============================================================================
-    # == TEST INTERPRETATION A: Assume `> 0.5` means "FIRE" ==
-    # ============================================================================
-    final_result_text_A = ""
-    final_verdict_style_A = st.error 
-
-    st.markdown("---") # Separator for clarity
-    #st.write("DEBUG: Testing Interpretation A: `< 0.5` means FIRE") 
+    st.markdown("---")
     if predicted_value < 0.5:
-        final_result_text_A = "🔥 Fire Detected!"
-        final_verdict_style_A = st.error
+        final_result_text = "🔥 Fire Detected!"
+        final_verdict_style = st.error
     else:
-        final_result_text_A = "✅ No Fire Detected."
-        final_verdict_style_A = st.success
-    
-    #st.subheader("Final Verdict (Using Interpretation A):")
-    final_verdict_style_A(final_result_text_A)
-    # ============================================================================
-    # == END OF TEST INTERPRETATION A ==
-    # =================================================_==_===========================
+        final_result_text = "✅ No Fire Detected."
+        final_verdict_style = st.success
 
-
-    # ============================================================================
-    # == TEST INTERPRETATION B: Assume `< 0.5` means "FIRE" (i.e., >0.5 is NO FIRE) ==
-    # ============================================================================
-    # final_result_text_B = ""
-    # final_verdict_style_B = st.error
-
-    # st.markdown("---") # Separator for clarity
-    # st.write("DEBUG: Testing Interpretation B: `< 0.5` means FIRE")
-    # if predicted_value < 0.5: # Note the change here: < 0.5 for FIRE
-    #     final_result_text_B = "🔥 Fire Detected! (Interp B)"
-    #     final_verdict_style_B = st.error
-    # else:
-    #     final_result_text_B = "✅ No Fire Detected. (Interp B)"
-    #     final_verdict_style_B = st.success
-
-    # st.subheader("Final Verdict (Using Interpretation B):")
-    # final_verdict_style_B(final_result_text_B)
-    # ============================================================================
-    # == END OF TEST INTERPRETATION B ==
-    # ============================================================================
+    final_verdict_style(final_result_text)
 
 else:
     st.info("Please upload an image file.")
 
 st.markdown("---")
-st.markdown("Developed by Yasaswini Chebolu")
-st.markdown("Check out the [GitHub Repository](https://github.com/Yasaswini-ch/Forest_Fire_Detection)")
