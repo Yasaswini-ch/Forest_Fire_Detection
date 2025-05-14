@@ -1,3 +1,5 @@
+# Forest Fire Detection Using CNN(Week-1,2,3)
+
 # Forest Fire Detection (Week 1 & 2)
 
 ## Overview
@@ -63,11 +65,11 @@ In Week 3, the focus shifted from model training to integration and deployment. 
 
 ## Week 3 Work:
 
-### 🔄 Model Saving and Finalization
+###  Model Saving and Finalization
 - Completed training and validation of the CNN model.
 - Saved the trained model in `.keras` format as `FFD.keras` for easy loading and reuse.
 
-### 🧠 Streamlit App Development (`app.py`)
+###  Streamlit App Development (`app.py`)
 - Created a responsive web interface using Streamlit.
 - Features of the app:
   - Upload images directly through the browser.
@@ -75,7 +77,68 @@ In Week 3, the focus shifted from model training to integration and deployment. 
   - Predicts whether the uploaded image shows **Fire** or **No Fire**.
   - Displays prediction confidence score.
 - Integrated `FFD.keras` model into the app using `tensorflow.keras.models.load_model()`.
+  
+**Features:**
+- Upload and preview images
+- Predict and display fire/no-fire result
+- User-friendly interface for real-time interaction
 
 ###  Repository Structure Finalized
 The following files were organized and pushed to GitHub:
+```
+forest-fire-detection/
+├── FFD.keras            # Saved model
+├── app.py               # Streamlit app
+├── requirements.txt     # Dependencies
+├── README.md            # Documentation  
+└── wildfire-dataset/    # Organized dataset (train/val/test)
+```
+## Deployment Guide
 
+The application can be hosted via GitHub and Streamlit Cloud:
+
+1. Push the following files to your GitHub repository:
+   - `app.py`
+   - `FFD.keras`
+   - `requirements.txt`
+   - `README.md`
+2. Go to [streamlit.io/cloud](https://streamlit.io/cloud)
+3. Connect your GitHub repository
+4. Set `app.py` as the main file
+5. Launch the application
+
+---
+
+## requirements.txt
+
+```txt
+streamlit
+tensorflow
+pillow
+numpy
+```
+
+---
+
+## Technologies Used
+
+| Tool             | Purpose                             |
+|------------------|--------------------------------------|
+| Python           | Core programming language            |
+| TensorFlow/Keras | Deep learning model development      |
+| NumPy            | Numerical computations               |
+| Matplotlib       | Visualization of data and results    |
+| Streamlit        | Application interface development    |
+| Google Colab     | Cloud-based model training           |
+| GitHub           | Version control and deployment       |
+
+---
+
+## Future Enhancements
+
+- Add webcam-based real-time fire detection capabilities
+- Improve model performance with additional data and advanced regularization
+- Incorporate Grad-CAM visualizations for interpretability
+- Implement real-time alert systems (e.g., SMS, email notifications)
+
+---
