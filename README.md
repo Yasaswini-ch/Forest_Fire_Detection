@@ -55,3 +55,27 @@ The dataset is organized into three main directories:
 - **Kaggle**: For accessing and downloading the dataset.
 - **Google Colab**: Used for running the code in the cloud with GPU support.
 - **Matplotlib**: Used for visualizing the sample images from the dataset.
+# Forest Fire Detection (Week 3)
+
+## Overview
+
+In Week 3, the focus shifted from model training to integration and deployment. The trained CNN model was connected to a Streamlit web interface to allow real-time fire detection from user-uploaded images. The deployment pipeline was also finalized for hosting the project via GitHub and Streamlit Cloud.
+
+## Week 3 Work:
+
+### 🔄 Model Saving and Finalization
+- Completed training and validation of the CNN model.
+- Saved the trained model in `.keras` format as `FFD.keras` for easy loading and reuse.
+
+### 🧠 Streamlit App Development (`app.py`)
+- Created a responsive web interface using Streamlit.
+- Features of the app:
+  - Upload images directly through the browser.
+  - Preview of uploaded image.
+  - Predicts whether the uploaded image shows **Fire** or **No Fire**.
+  - Displays prediction confidence score.
+- Integrated `FFD.keras` model into the app using `tensorflow.keras.models.load_model()`.
+
+###  Repository Structure Finalized
+The following files were organized and pushed to GitHub:
+
