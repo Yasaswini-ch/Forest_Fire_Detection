@@ -68,13 +68,13 @@ if uploaded_file is not None:
     st.markdown("---") # Separator for clarity
     st.write("DEBUG: Testing Interpretation A: `< 0.5` means FIRE") 
     if predicted_value < 0.5:
-        final_result_text_A = "🔥 Fire Detected! (Interp A)"
+        final_result_text_A = "🔥 Fire Detected!"
         final_verdict_style_A = st.error
     else:
-        final_result_text_A = "✅ No Fire Detected. (Interp A)"
+        final_result_text_A = "✅ No Fire Detected."
         final_verdict_style_A = st.success
     
-    st.subheader("Final Verdict (Using Interpretation A):")
+    #st.subheader("Final Verdict (Using Interpretation A):")
     final_verdict_style_A(final_result_text_A)
     # ============================================================================
     # == END OF TEST INTERPRETATION A ==
