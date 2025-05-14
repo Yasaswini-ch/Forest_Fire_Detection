@@ -40,7 +40,7 @@ uploaded_file = st.file_uploader("Upload an image of a forest scene", type=["jpg
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)
     
     # --- Preprocess image (Keep this consistent with your training) ---
     img_resized = image.resize((TRAINING_IMG_WIDTH, TRAINING_IMG_HEIGHT))
