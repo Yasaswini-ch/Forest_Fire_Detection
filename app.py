@@ -66,8 +66,8 @@ if uploaded_file is not None:
     final_verdict_style_A = st.error 
 
     st.markdown("---") # Separator for clarity
-    st.write("DEBUG: Testing Interpretation A: `> 0.5` means FIRE") 
-    if predicted_value > 0.5:
+    st.write("DEBUG: Testing Interpretation A: `< 0.5` means FIRE") 
+    if predicted_value < 0.5:
         final_result_text_A = "🔥 Fire Detected! (Interp A)"
         final_verdict_style_A = st.error
     else:
