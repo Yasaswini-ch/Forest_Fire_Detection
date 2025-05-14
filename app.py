@@ -53,7 +53,7 @@ if uploaded_file is not None:
         raw_prediction = model.predict(img_batch)
     
     predicted_value = raw_prediction[0][0]
-    st.write(f"DEBUG: Raw scalar prediction from model: {predicted_value:.4f}") # DEBUG LINE
+    #st.write(f"DEBUG: Raw scalar prediction from model: {predicted_value:.4f}") # DEBUG LINE
 
     # --- Interpret Prediction ---
     # CHOOSE *ONE* OF THE FOLLOWING INTERPRETATION BLOCKS TO TEST AT A TIME.
@@ -66,7 +66,7 @@ if uploaded_file is not None:
     final_verdict_style_A = st.error 
 
     st.markdown("---") # Separator for clarity
-    st.write("DEBUG: Testing Interpretation A: `< 0.5` means FIRE") 
+    #st.write("DEBUG: Testing Interpretation A: `< 0.5` means FIRE") 
     if predicted_value < 0.5:
         final_result_text_A = "🔥 Fire Detected!"
         final_verdict_style_A = st.error
